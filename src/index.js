@@ -10,18 +10,26 @@ import ErrorPage from "./components/Errorpage";
 import Product from "./pages/ProductPage/Product";
 import Products from "./pages/ProductsPage/Products";
 import CartPage from "./pages/CartPage/Cartpage";
+import Home from "./pages/HomePage/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/login", element: <Login />, errorElement: <ErrorPage /> },
+      { path: "/register", element: <Register />, errorElement: <ErrorPage /> },
+      { path: "/products", element: <Products />, errorElement: <ErrorPage /> },
+      {
+        path: "/products/:id",
+        element: <Product />,
+        errorElement: <ErrorPage />,
+      },
+      { path: "/cart", element: <CartPage />, errorElement: <ErrorPage /> },
+    ],
   },
-  { path: "/login", element: <Login />, errorElement: <ErrorPage /> },
-  { path: "/register", element: <Register />, errorElement: <ErrorPage /> },
-  { path: "/products", element: <Products />, errorElement: <ErrorPage /> },
-  { path: "/products/:id", element: <Product />, errorElement: <ErrorPage /> },
-  { path: "/cart", element: <CartPage />, errorElement: <ErrorPage /> },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

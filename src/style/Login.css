@@ -1,0 +1,46 @@
+#userContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* This will ensure it tries to fill the available space */
+  flex-grow: 1;
+  color: white;
+}
+
+#loginContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 400px;
+  width: 500px;
+  border-radius: 20px;
+  background: black;
+  transition: border 500ms ease-out;
+}
+
+#loginContainer:hover {
+  border: 1.5px solid #22d1dc;
+}
+
+input {
+  transition: outline 200ms ease-out;
+  outline: none;
+}
+input:focus {
+  /* border: 1.5px solid #22d1dc; */
+  outline: 1px solid #22d1dc;
+}
+
+.title {
+  font-size: 16px;
+  textalign: center;
+  width: 100px;
+  border-bottom: 1px solid #FFFFFF;
+  transition: border 500ms ease-out;
+}
+
+.title:focus {
+
+}
