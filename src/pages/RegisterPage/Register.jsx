@@ -6,6 +6,10 @@ export default function Register() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
+  // Border animation
+  const [input1Focus, setInput1Focus] = useState(false);
+  const [input2Focus, setInput2Focus] = useState(false);
+
   return (
     <section id="userContainer">
       <div id="loginContainer">
@@ -25,12 +29,26 @@ export default function Register() {
             style={{
               textAlign: "center",
               margin: "40px auto 0 auto",
+              borderBottom: input1Focus
+                ? "1px solid #22d1dc"
+                : "1px solid #FFFFFF",
             }}
           >
             Username
           </p>
           <input
-            style={{ marginTop: "5px" }}
+            onFocus={() => {
+              setInput1Focus(true);
+            }}
+            onBlur={() => {
+              setInput1Focus(false);
+            }}
+            style={{
+              marginTop: "7px",
+              borderRadius: "3px",
+              border: "none",
+              padding: "2px",
+            }}
             className="dataInput"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -42,12 +60,26 @@ export default function Register() {
             style={{
               textAlign: "center",
               margin: "15px auto 0 auto",
+              borderBottom: input2Focus
+                ? "1px solid #22d1dc"
+                : "1px solid #FFFFFF",
             }}
           >
             Password
           </p>
           <input
-            style={{ marginTop: "5px" }}
+            onFocus={() => {
+              setInput2Focus(true);
+            }}
+            onBlur={() => {
+              setInput2Focus(false);
+            }}
+            style={{
+              marginTop: "7px",
+              borderRadius: "3px",
+              border: "none",
+              padding: "2px",
+            }}
             className="dataInput"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
