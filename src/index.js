@@ -7,8 +7,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./pages/LoginPage/Login";
 import Register from "./pages/RegisterPage/Register";
 import ErrorPage from "./components/Errorpage";
-import Product from "./pages/ProductPage/Product";
-import Products from "./pages/ProductsPage/Products";
+import Product from "./pages/ProductPage/ProductPage";
+import Products from "./pages/ProductsPage/ProductsPage";
 import CartPage from "./pages/CartPage/Cartpage";
 import Home from "./pages/HomePage/Home";
 

@@ -1,0 +1,39 @@
+#productsPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%; /* This will ensure it tries to fill the available space */
+  color: white;
+}
+
+#bestSellingItemContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#allItemsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerTitles {
+  padding: 4px;
+  border-bottom: 1px solid white;
+  width: 160px;
+  text-align: center;
+  font-size: 18px;
+}
+
+#productsPartContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-grow: 1;
+  color: white;
+}

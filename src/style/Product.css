@@ -1,0 +1,13 @@
+#productPageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#productPartContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: 1;
+}

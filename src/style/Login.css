@@ -17,7 +17,7 @@
   width: 500px;
   border-radius: 20px;
   background: black;
-  transition: border 500ms ease-out;
+  transition: border-color 500ms ease-out;
 }
 
 #loginContainer:hover {
@@ -35,10 +35,7 @@ input:focus {
 
 .title {
   font-size: 16px;
-  textalign: center;
+  text-align: center;
   width: 100px;
   transition: border 500ms ease-out;
-}
-
-.title:focus {
 }

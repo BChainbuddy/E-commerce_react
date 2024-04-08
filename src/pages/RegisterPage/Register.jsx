@@ -27,7 +27,6 @@ export default function Register() {
           <p
             className="title"
             style={{
-              textAlign: "center",
               margin: "40px auto 0 auto",
               borderBottom: input1Focus
                 ? "1px solid #22d1dc"
@@ -58,7 +57,6 @@ export default function Register() {
           <p
             className="title"
             style={{
-              textAlign: "center",
               margin: "15px auto 0 auto",
               borderBottom: input2Focus
                 ? "1px solid #22d1dc"
