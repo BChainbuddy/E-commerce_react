@@ -12,7 +12,7 @@ export default function Register() {
 
   return (
     <section id="userContainer">
-      <div id="loginContainer">
+      <form id="loginContainer" method="POST">
         <p
           id="loginTitle"
           style={{
@@ -51,6 +51,7 @@ export default function Register() {
             className="dataInput"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required
           />
         </div>
         <div id="passwordContainer">
@@ -81,6 +82,7 @@ export default function Register() {
             className="dataInput"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
         <div
@@ -91,7 +93,8 @@ export default function Register() {
         >
           <p></p>
         </div>
-        <button
+        <input
+          type="submit"
           style={{
             height: "25px",
             width: "120px",
@@ -103,17 +106,16 @@ export default function Register() {
             transition: "background 500ms ease-in",
             color: "black",
           }}
+          value={"LOGIN"}
           disabled={!password || !username}
-        >
-          REGISTER
-        </button>
+        ></input>
         <p style={{ marginTop: "10px", marginBottom: "30px" }}>
           Already have an account?
           <Link to="/login" style={{ marginLeft: "5px" }}>
             Login here
           </Link>
         </p>
-      </div>
+      </form>
     </section>
   );
 }

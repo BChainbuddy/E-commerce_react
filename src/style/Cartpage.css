@@ -1,0 +1,22 @@
+#cartPageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#cartContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+  padding: 10px;
+  padding-bottom: 100px;
+}
+
+#checkoutPart {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
