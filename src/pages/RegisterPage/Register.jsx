@@ -1,18 +1,44 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../style/Register.css";
+import { register } from "../../api";
 
 export default function Register() {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   // Border animation
   const [input1Focus, setInput1Focus] = useState(false);
   const [input2Focus, setInput2Focus] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    let userData = {
+      username: username,
+      password: password,
+    };
+    try {
+      const response = await register(userData);
+
+      if (!response.ok) {
+        if (response.status === 404) {
+          setError("Account with username already exists!");
+        }
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("Success:", data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <section id="userContainer">
-      <form id="loginContainer" method="POST">
+      <form id="loginContainer" method="POST" onSubmit={handleSubmit}>
         <p
           id="loginTitle"
           style={{
@@ -89,9 +115,11 @@ export default function Register() {
           style={{
             textAlign: "center",
             height: "20px",
+            fontSize: "14px",
+            color: "red",
           }}
         >
-          <p></p>
+          <p>{error}</p>
         </div>
         <input
           type="submit"
@@ -106,7 +134,7 @@ export default function Register() {
             transition: "background 500ms ease-in",
             color: "black",
           }}
-          value={"LOGIN"}
+          value={"REGISTER"}
           disabled={!password || !username}
         ></input>
         <p style={{ marginTop: "10px", marginBottom: "30px" }}>
