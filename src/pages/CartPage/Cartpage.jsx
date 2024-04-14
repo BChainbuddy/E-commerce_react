@@ -1,9 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import CartList from "./components/CartList";
 import "../../style/CartPage.css";
+import { useEffect } from "react";
+import { getCart } from "../../api";
 
 export default function CartPage() {
   const navigate = useNavigate();
+
+  const fetchCart = async () => {
+    await getCart();
+  };
+
+  useEffect(() => {
+    fetchCart();
+  }, []);
   return (
     <div id="cartPageContainer">
       <div
@@ -40,23 +50,7 @@ export default function CartPage() {
           <p style={{ fontSize: "16px", marginTop: "5px" }}>
             <span style={{ marginRight: "2px" }}>139</span>eur
           </p>
-          <button
-            style={{
-              padding: "10px",
-              textAlign: "center",
-              background: "#22d1dc",
-              outline: "none",
-              borderRadius: "16px",
-              border: "0",
-              cursor: "pointer",
-              transition: "background 500ms ease-in",
-              color: "black",
-              fontSize: "18px",
-              marginTop: "30px",
-            }}
-          >
-            PROCEED TO CHECKOUT
-          </button>
+          <button id="proceedButton">PROCEED TO CHECKOUT</button>
         </div>
       </div>
     </div>

@@ -16,3 +16,7 @@
 #name {
   font-size: 30px;
 }
+
+#cart {
+  cursor: pointer;
+}

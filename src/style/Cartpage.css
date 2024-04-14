@@ -20,3 +20,23 @@
   justify-content: end;
   align-items: center;
 }
+
+#proceedButton {
+  padding: 10px;
+  text-align: center;
+  background: #22d1dc;
+  outline: none;
+  border-radius: 16px;
+  border: 0;
+  cursor: pointer;
+  transition: 500ms ease-in;
+  color: black;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#proceedButton:hover {
+  background: #000000;
+  color: white;
+  transform: scale(1.05, 1.05);
+}

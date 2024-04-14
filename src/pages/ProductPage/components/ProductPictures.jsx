@@ -1,7 +1,12 @@
-export default function ProductPictures({ pictures }) {
+export default function ProductPictures({ path }) {
+  console.log(path);
   return (
     <div>
-      <img src={pictures[0]} />
+      <img
+        src={`http://localhost:8001/uploads/${path.image_path}`}
+        height={400}
+        width={400}
+      />
       {/* {pictures.map((pic) => (
         <img src="" />
       ))} */}
