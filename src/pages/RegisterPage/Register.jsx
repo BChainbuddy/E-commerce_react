@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import "../../style/Register.css";
+import { Link, useNavigate } from "react-router-dom";
+import "../../style/Login.css";
 import { register } from "../../api";
 
 export default function Register() {
@@ -8,9 +8,12 @@ export default function Register() {
   const [password, setPassword] = useState("");
 
   // Border animation
+
   const [input1Focus, setInput1Focus] = useState(false);
   const [input2Focus, setInput2Focus] = useState(false);
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +26,7 @@ export default function Register() {
       const response = await register(userData);
 
       if (!response.ok) {
-        if (response.status === 404) {
+        if (response.status === 400) {
           setError("Account with username already exists!");
         }
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -31,6 +34,7 @@ export default function Register() {
 
       const data = await response.json();
       console.log("Success:", data);
+      navigate("/login");
     } catch (error) {
       console.error("Error:", error);
     }
@@ -115,7 +119,7 @@ export default function Register() {
           style={{
             textAlign: "center",
             height: "20px",
-            fontSize: "14px",
+            fontSize: "12px",
             color: "red",
           }}
         >

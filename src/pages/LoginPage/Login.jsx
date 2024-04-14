@@ -1,18 +1,46 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../style/Login.css";
 import { useState } from "react";
+import { login } from "../../api";
 
 export default function Login() {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   // Border animation
   const [input1Focus, setInput1Focus] = useState(false);
   const [input2Focus, setInput2Focus] = useState(false);
 
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    let userData = {
+      username: username,
+      password: password,
+    };
+    console.log(userData);
+    try {
+      const response = await login(userData);
+
+      if (!response.ok) {
+        setError("Username and password don't match!");
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("Success:", data);
+      navigate("/products");
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <section id="userContainer">
-      <div id="loginContainer">
+      <form id="loginContainer" onSubmit={handleSubmit}>
         <p
           id="loginTitle"
           style={{ textAlign: "center", marginTop: "30px", fontSize: "25px" }}
@@ -47,6 +75,7 @@ export default function Login() {
             className="dataInput"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required
           />
         </div>
         <div id="passwordContainer">
@@ -77,20 +106,24 @@ export default function Login() {
             className="dataInput"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
         <div
           style={{
             textAlign: "center",
             height: "20px",
+            fontSize: "12px",
+            color: "red",
           }}
         >
-          <p></p>
+          <p>{error}</p>
         </div>
-        <button
+        <input
+          type="submit"
           style={{
             height: "25px",
-            width: "100px",
+            width: "120px",
             background: password && username ? "#22d1dc" : "#486470",
             outline: "none",
             borderRadius: "8px",
@@ -99,17 +132,16 @@ export default function Login() {
             transition: "background 500ms ease-in",
             color: "black",
           }}
+          value={"LOGIN"}
           disabled={!password || !username}
-        >
-          LOGIN
-        </button>
+        ></input>
         <p style={{ marginTop: "10px", marginBottom: "30px" }}>
           Don't have an account?
           <Link to="/register" style={{ marginLeft: "5px" }}>
             Sign up here
           </Link>
         </p>
-      </div>
+      </form>
     </section>
   );
 }
