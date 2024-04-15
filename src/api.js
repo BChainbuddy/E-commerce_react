@@ -77,3 +77,69 @@ export async function getCart() {
     throw error;
   }
 }
+
+export async function addToCart(itemData) {
+  try {
+    const response = await fetch(`http://localhost:8001/cart`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(itemData),
+    });
+    return response;
+  } catch (error) {
+    console.error("Network error:", error);
+    throw error;
+  }
+}
+
+export async function clearCart() {
+  try {
+    const response = await fetch(`http://localhost:8001/cart`, {
+      method: "DELETE",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response;
+  } catch (error) {
+    console.error("Network error:", error);
+    throw error;
+  }
+}
+
+export async function deleteFromCart(itemId) {
+  try {
+    const response = await fetch(`http://localhost:8001/cart/${itemId}`, {
+      method: "DELETE",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response;
+  } catch (error) {
+    console.error("Network error:", error);
+    throw error;
+  }
+}
+
+export async function changeQuantity(itemId, quantity) {
+  try {
+    const response = await fetch(`http://localhost:8001/cart/${itemId}`, {
+      method: "PUT",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(quantity),
+    });
+    return response;
+  } catch (error) {
+    console.error("Network error:", error);
+    throw error;
+  }
+}

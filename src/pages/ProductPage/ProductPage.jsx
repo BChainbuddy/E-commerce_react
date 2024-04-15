@@ -3,7 +3,7 @@ import ProductPictures from "./components/ProductPictures";
 import { useEffect, useState } from "react";
 import ProductInfo from "./components/ProductInfo";
 import "../../style/Product.css";
-import { getProductById } from "../../api";
+import { addToCart, getProductById } from "../../api";
 
 export default function ProductPage() {
   // Get item attributes of an item with id
@@ -22,6 +22,15 @@ export default function ProductPage() {
     getItem();
   }, []);
 
+  const handleAddToCart = async () => {
+    const itemData = {
+      itemId: product.id,
+      quantity: quantity,
+    };
+    console.log(itemData);
+    await addToCart(itemData);
+  };
+
   return (
     <div id="productPageContainer">
       <div
@@ -31,6 +40,7 @@ export default function ProductPage() {
           cursor: "pointer",
           marginTop: "30px",
           marginLeft: "40px",
+          width: "fit-content",
         }}
       >
         <div onClick={() => navigate(-1)}>GO BACK</div>
@@ -51,7 +61,9 @@ export default function ProductPage() {
               style={{ width: "80px" }}
             />
           </div>
-          <button id="addToCartButton">Add to cart</button>
+          <button id="addToCartButton" onClick={handleAddToCart}>
+            Add to cart
+          </button>
         </div>
       </div>
     </div>

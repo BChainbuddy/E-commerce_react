@@ -11,12 +11,56 @@
   justify-content: space-between;
   padding: 30px;
   align-items: center;
+  z-index: 20;
+  position: relative;
 }
 
 #name {
   font-size: 30px;
+  z-index: 12;
 }
 
 #cart {
   cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  left: 0;
+  top: 90px;
+  height: fit-content;
+  padding: 50px;
+  width: 130px;
+  background: black;
+  z-index: 10;
+  transform: translateY(-300px);
+  transition: 300ms ease-out;
+  /* opacity: 0; */
+  border-bottom-right-radius: 20px;
+}
+
+#menuButton {
+  transition: 200ms ease-out;
+  cursor: pointer;
+}
+
+#menuButton:hover {
+  color: #22d1dc;
+}
+
+.menuOpen {
+  transform: translateX(0px);
+  /* opacity: 100; */
+}
+
+.menuItem {
+  font-size: 18px;
+  margin-top: 30px;
+  color: white;
+  transition: 200ms ease-out;
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  color: #22d1dc;
 }

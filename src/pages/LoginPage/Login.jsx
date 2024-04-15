@@ -6,6 +6,8 @@ import { login } from "../../api";
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const [shownPassword, setShownPassword] = useState("");
   const [error, setError] = useState("");
 
   // Border animation
@@ -14,14 +16,27 @@ export default function Login() {
 
   const navigate = useNavigate();
 
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+    // let starredPassword = "";
+    // let userInput = e.target.value;
+    // for (let i = 0; userInput.length > i; i++) {
+    //   if (i === userInput.length - 1) {
+    //     starredPassword = starredPassword + userInput[i];
+    //   } else {
+    //     starredPassword = starredPassword + "*";
+    //   }
+    // }
+    // setShownPassword(starredPassword);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(password);
     let userData = {
       username: username,
       password: password,
     };
-    console.log(userData);
     try {
       const response = await login(userData);
 
@@ -105,7 +120,7 @@ export default function Login() {
             }}
             className="dataInput"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handlePassword}
             required
           />
         </div>
