@@ -20,8 +20,23 @@
   z-index: 12;
 }
 
-#cart {
+.cart {
+  transition: 200ms ease-out;
   cursor: pointer;
+}
+
+.cart:hover {
+  color: #22d1dc;
+}
+
+.cartJump {
+  animation: jump 1s ease-in alternate;
+}
+
+@keyframes jump {
+  100% {
+    transform: translateY(-20px);
+  }
 }
 
 .menu {
@@ -33,8 +48,8 @@
   width: 130px;
   background: black;
   z-index: 10;
-  transform: translateY(-300px);
-  transition: 300ms ease-out;
+  transform: translateY(-350px);
+  transition: 400ms ease-out;
   /* opacity: 0; */
   border-bottom-right-radius: 20px;
 }

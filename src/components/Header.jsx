@@ -4,6 +4,14 @@ import { useState } from "react";
 
 export default function Header({ loggedIn }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  // const [addedToCart, setAddedToCart] = useState(false);
+
+  // const animateAddToCart = () => {
+  //   setAddedToCart(true);
+  //   setTimeout(() => {
+  //     setAddedToCart(false);
+  //   }, 500);
+  // };
 
   const navigate = useNavigate();
 
@@ -26,7 +34,7 @@ export default function Header({ loggedIn }) {
           MENU
         </div>
         <p id="name">BE-BETTER</p>
-        <p id="cart" onClick={toCart}>
+        <p className="cart" onClick={toCart}>
           CART
         </p>
       </div>

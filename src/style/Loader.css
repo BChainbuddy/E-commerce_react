@@ -1,0 +1,65 @@
+#loaderContainer {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loader {
+  border: 8px solid #00000050;
+  border-right: 8px solid #22d1dc;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin-bottom: 30px;
+  animation: animateLoader 1s ease infinite;
+}
+
+@keyframes animateLoader {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.progressContainer {
+  width: 100px;
+  height: 10px;
+  border: 8px solid #00000050;
+  border-radius: 20px;
+  padding: 1px;
+}
+
+.progress {
+  background: #22d1dc;
+  width: 10%;
+  height: 100%;
+  border-radius: 20px;
+  animation: animateProgress 1.5s ease infinite;
+}
+
+@keyframes animateProgress {
+  100% {
+    width: 100%;
+  }
+}
+
+.spinningDumbbell {
+  animation: animateLoader 3s ease infinite;
+}
+
+@keyframes spinningItem {
+  33% {
+    transform: translateX(0px) translateY(50px);
+  }
+
+  66% {
+    transform: translateX(-50px) translateY(0px);
+  }
+
+  100% {
+    transform: translateX(0px) translateY(-50px);
+  }
+}

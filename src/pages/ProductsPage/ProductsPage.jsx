@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import "../../style/Products.css";
 import ProductList from "./components/ProductList";
 import { getProducts } from "../../api";
+import Loader from "../../components/Loader";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -24,29 +25,35 @@ export default function ProductsPage() {
   }, []);
 
   return (
-    <div id="productsPageContainer">
-      <p
-        style={{
-          fontSize: "20px",
-          width: "600px",
-          marginTop: "120px",
-          textAlign: "center",
-        }}
-      >
-        Welcome to our Store! Choose between many high-quality fitness items
-        which will make you stronger and fitter than ever before!
-      </p>
-      <div id="productsPartContainer">
-        <div id="discountedItemsContainer">
-          <p className="containerTitles">Discounts!</p>
-          <ProductList products={discounted} />
+    <>
+      {products.length ? (
+        <div id="productsPageContainer">
+          <p
+            style={{
+              fontSize: "20px",
+              width: "600px",
+              marginTop: "120px",
+              textAlign: "center",
+            }}
+          >
+            Welcome to our Store! Choose between many high-quality fitness items
+            which will make you stronger and fitter than ever before!
+          </p>
+          <div id="productsPartContainer">
+            <div id="discountedItemsContainer">
+              <p className="containerTitles">Discounts!</p>
+              <ProductList products={discounted} />
+            </div>
+            <div id="allItemsContainer">
+              <p className="containerTitles">Browse all items</p>
+              <ProductList products={products} />
+            </div>
+          </div>
+          <Footer />
         </div>
-        <div id="allItemsContainer">
-          <p className="containerTitles">Browse all items</p>
-          <ProductList products={products} />
-        </div>
-      </div>
-      <Footer />
-    </div>
+      ) : (
+        <Loader />
+      )}
+    </>
   );
 }

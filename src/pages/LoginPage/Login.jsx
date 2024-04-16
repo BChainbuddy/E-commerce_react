@@ -7,7 +7,7 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const [shownPassword, setShownPassword] = useState("");
+  // const [shownPassword, setShownPassword] = useState("");
   const [error, setError] = useState("");
 
   // Border animation

@@ -3,6 +3,7 @@ import CartList from "./components/CartList";
 import "../../style/CartPage.css";
 import { useEffect, useState } from "react";
 import { getCart } from "../../api";
+import Loader from "../../components/Loader";
 
 export default function CartPage() {
   const [cart, setCart] = useState("");
@@ -11,7 +12,11 @@ export default function CartPage() {
   const navigate = useNavigate();
 
   const fetchCart = async () => {
-    setCart(await getCart());
+    const response = await getCart();
+    if (!response) {
+      navigate("/login");
+    }
+    setCart(response);
   };
 
   const getCartValue = () => {
@@ -35,45 +40,58 @@ export default function CartPage() {
   }, [cart]);
 
   return (
-    <div id="cartPageContainer">
-      <div
-        id="goBack"
-        style={{
-          marginTop: "20px",
-          color: "white",
-          cursor: "pointer",
-          marginTop: "30px",
-          marginLeft: "40px",
-          width: "fit-content",
-        }}
-      >
-        <div onClick={() => navigate(-1)}>GO BACK</div>
-      </div>
-      <div id="cartContainer">
-        <CartList products={cart} updateCart={fetchCart} />
-        <div
-          id="checkoutPart"
-          style={{
-            height: "100%",
-            color: "white",
-            textAlign: "center",
-          }}
-        >
-          <p
+    <>
+      {cart ? (
+        <div id="cartPageContainer">
+          <div
+            id="goBack"
             style={{
-              fontSize: "20px",
-              borderBottom: "1px solid white",
-              width: "120px",
+              marginTop: "20px",
+              color: "white",
+              cursor: "pointer",
+              marginTop: "30px",
+              marginLeft: "40px",
+              width: "fit-content",
             }}
           >
-            Cart value
-          </p>
-          <p style={{ fontSize: "16px", marginTop: "5px" }}>
-            <span style={{ marginRight: "2px" }}>{cartValue}</span>$
-          </p>
-          <button id="proceedButton">PROCEED TO CHECKOUT</button>
+            <div onClick={() => navigate(-1)}>GO BACK</div>
+          </div>
+          <div id="cartContainer">
+            <CartList products={cart} updateCart={fetchCart} />
+            <div
+              id="checkoutPart"
+              style={{
+                height: "100%",
+                color: "white",
+                textAlign: "center",
+              }}
+            >
+              <p
+                style={{
+                  fontSize: "20px",
+                  borderBottom: "1px solid white",
+                  width: "120px",
+                }}
+              >
+                Cart value
+              </p>
+              <p style={{ fontSize: "16px", marginTop: "5px" }}>
+                <span style={{ marginRight: "2px" }}>{cartValue}</span>$
+              </p>
+              <button
+                id="proceedButton"
+                onClick={() => {
+                  navigate("/cart/checkout");
+                }}
+              >
+                PROCEED TO CHECKOUT
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      ) : (
+        <Loader />
+      )}
+    </>
   );
 }

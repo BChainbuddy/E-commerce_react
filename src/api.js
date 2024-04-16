@@ -71,6 +71,9 @@ export async function getCart() {
         "Content-Type": "application/json",
       },
     });
+    if (!response.ok) {
+      return false;
+    }
     return response.json();
   } catch (error) {
     console.error("Network error:", error);
@@ -138,6 +141,22 @@ export async function changeQuantity(itemId, quantity) {
       body: JSON.stringify(quantity),
     });
     return response;
+  } catch (error) {
+    console.error("Network error:", error);
+    throw error;
+  }
+}
+
+export async function stripeSession() {
+  try {
+    const response = await fetch(`http://localhost:8001/cart/payment-session`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.json();
   } catch (error) {
     console.error("Network error:", error);
     throw error;
