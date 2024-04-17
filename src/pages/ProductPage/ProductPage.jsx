@@ -28,8 +28,10 @@ export default function ProductPage() {
       itemId: product.id,
       quantity: quantity,
     };
-    console.log(itemData);
-    await addToCart(itemData);
+    const response = await addToCart(itemData);
+    if (!response) {
+      navigate("login");
+    }
   };
 
   return (
