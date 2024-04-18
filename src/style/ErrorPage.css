@@ -1,0 +1,32 @@
+#errorPageContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.getBackToHome {
+  font-size: 22px;
+  margin-top: 20px;
+  text-decoration: underline;
+  color: #22d1dc;
+  transition: 200ms ease-out;
+  cursor: pointer;
+}
+
+.getBackToHome:hover {
+  color: #22d1dc80;
+}
+
+/* .jumpingDumbbell {
+  animation: animateJump 2s ease infinite;
+}
+
+@keyframes animateJump {
+  50% {
+    transform: translateY(-50px);
+  }
+} */

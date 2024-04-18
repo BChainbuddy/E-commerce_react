@@ -59,11 +59,29 @@ export default function Header({ loggedIn }) {
         <p
           className="menuItem"
           onClick={() => {
-            navigate("/about");
+            navigate("/user");
           }}
           style={{ marginBottom: "30px" }}
         >
-          About us
+          User profile
+        </p>
+        <p
+          className="menuItem"
+          onClick={() => {
+            navigate("/login");
+          }}
+          style={{ marginBottom: "30px" }}
+        >
+          Login
+        </p>
+        <p
+          className="menuItem"
+          onClick={() => {
+            navigate("/register");
+          }}
+          style={{ marginBottom: "30px" }}
+        >
+          Register
         </p>
       </div>
     </>

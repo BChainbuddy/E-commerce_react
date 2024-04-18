@@ -1,0 +1,102 @@
+#userPageContainer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* padding-bottom: 50px; */
+}
+
+#OrdersShippingContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+#shippingForm {
+  display: flex;
+  flex-direction: column;
+  background: #00000080;
+  color: white;
+  padding: 40px;
+  border-radius: 20px;
+  height: 350px;
+  width: 300px;
+}
+
+#ordersContainer {
+  display: flex;
+  flex-direction: column;
+  background: #00000080;
+  color: white;
+  padding: 40px;
+  border-radius: 20px;
+  height: 350px;
+  width: 400px;
+  /* overflow-y: auto; */
+}
+
+.updateButton {
+  padding: 8px;
+  text-align: center;
+  background: #22d1dc;
+  outline: none;
+  border-radius: 16px;
+  border: 0;
+  cursor: pointer;
+  transition: 500ms ease-in;
+  color: black;
+  font-size: 16px;
+  margin-top: 10px;
+  width: 120px;
+  margin: 0 auto;
+}
+
+.updateButton:hover {
+  background: #000000;
+  color: white;
+  transform: scale(1.05, 1.05);
+}
+
+.logoutButton {
+  padding: 8px;
+  text-align: center;
+  background: #22d1dc;
+  outline: none;
+  border-radius: 16px;
+  border: 0;
+  cursor: pointer;
+  transition: 500ms ease-in;
+  color: black;
+  font-size: 16px;
+  margin-top: 10px;
+  width: 120px;
+  margin: 0 auto;
+}
+
+.logoutButton:hover {
+  background: #000000;
+  color: white;
+  transform: scale(1.05, 1.05);
+}
+
+.orders {
+  /* overflow-y: scroll;
+  overflow-x: clip; */
+}
+
+.order {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px;
+  width: 100%;
+  background: #00000040;
+  margin-top: 10px;
+  border-radius: 5px;
+}

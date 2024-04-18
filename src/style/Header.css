@@ -13,6 +13,8 @@
   align-items: center;
   z-index: 20;
   position: relative;
+  /* border-bottom: 2px solid #22d1dc;
+  box-shadow: 0em 0.2em 1em #22d1dc60; */
 }
 
 #name {
@@ -48,8 +50,8 @@
   width: 130px;
   background: black;
   z-index: 11;
-  transform: translateY(-350px);
-  transition: 400ms ease-out;
+  transform: translateY(-500px);
+  transition: 450ms ease-out;
   /* opacity: 0; */
   border-bottom-right-radius: 20px;
 }

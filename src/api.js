@@ -162,3 +162,117 @@ export async function stripeSession() {
     throw error;
   }
 }
+
+export async function getUser() {
+  try {
+    const response = await fetch(`http://localhost:8001/user`, {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.json();
+  } catch (error) {
+    console.error("Network error:", error);
+    throw error;
+  }
+}
+
+export async function getAddress() {
+  try {
+    const response = await fetch(`http://localhost:8001/user/address`, {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.json();
+  } catch (error) {
+    console.error("Network error:", error);
+    throw error;
+  }
+}
+
+export async function postAddress(newAddress) {
+  try {
+    const response = await fetch(`http://localhost:8001/user/address`, {
+      method: "POST",
+      credentials: "include",
+      body: JSON.stringify(newAddress),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response;
+  } catch (error) {
+    console.error("Network error:", error);
+    throw error;
+  }
+}
+
+export async function putAddress(newAddress) {
+  try {
+    const response = await fetch(`http://localhost:8001/user/address`, {
+      method: "PUT",
+      credentials: "include",
+      body: JSON.stringify(newAddress),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response;
+  } catch (error) {
+    console.error("Network error:", error);
+    throw error;
+  }
+}
+
+export async function checkoutComplete() {
+  try {
+    const response = await fetch(`http://localhost:8001/cart/checkout`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response;
+  } catch (error) {
+    console.error("Network error:", error);
+    throw error;
+  }
+}
+
+export async function getOrders() {
+  try {
+    const response = await fetch(`http://localhost:8001/orders`, {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response;
+  } catch (error) {
+    console.error("Network error:", error);
+    throw error;
+  }
+}
+
+export async function getOrderById(orderId) {
+  try {
+    const response = await fetch(`http://localhost:8001/orders/${orderId}`, {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response;
+  } catch (error) {
+    console.error("Network error:", error);
+    throw error;
+  }
+}

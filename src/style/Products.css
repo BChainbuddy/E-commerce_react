@@ -36,6 +36,7 @@
   width: 160px;
   text-align: center;
   font-size: 20px;
+  transition: 300ms ease-out;
 }
 
 #productsPartContainer {
@@ -107,4 +108,14 @@
 .grid-item:hover .overlay {
   background: rgba(0, 0, 0, 0.5);
   opacity: 1;
+}
+
+#discountedItemsContainer:hover .containerTitles {
+  color: #22d1dc;
+  border-bottom: 1px solid #22d1dc;
+}
+
+#allItemsContainer:hover .containerTitles {
+  color: #22d1dc;
+  border-bottom: 1px solid #22d1dc;
 }

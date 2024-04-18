@@ -5,6 +5,7 @@ import {
 } from "@stripe/react-stripe-js";
 
 import "../../../style/Checkout.css";
+import { checkoutComplete } from "../../../api";
 
 export default function CheckoutForm() {
   const stripe = useStripe(); // Reference to stripe passed to elements
@@ -12,6 +13,8 @@ export default function CheckoutForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    await checkoutComplete();
+
     if (!stripe || !elements) {
       return;
     }
@@ -24,7 +27,8 @@ export default function CheckoutForm() {
     if (result.error) {
       console.log(result.error.message);
     } else {
-      console.log("Worked!");
+      console.log("Payed!");
+      // Convert cart to orders!
     }
   };
   return (

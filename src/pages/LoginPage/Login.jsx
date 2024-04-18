@@ -32,7 +32,6 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(password);
     let userData = {
       username: username,
       password: password,
@@ -47,7 +46,7 @@ export default function Login() {
 
       const data = await response.json();
       console.log("Success:", data);
-      navigate("/products");
+      navigate(-1);
     } catch (error) {
       console.error("Error:", error);
     }
