@@ -32,6 +32,22 @@ export async function login(userData) {
   }
 }
 
+export async function logout() {
+  try {
+    const response = await fetch("http://localhost:8001/user/logout", {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response;
+  } catch (error) {
+    console.error("Network error:", error);
+    throw error;
+  }
+}
+
 export async function getProducts() {
   try {
     const response = await fetch("http://localhost:8001/items");

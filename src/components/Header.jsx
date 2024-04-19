@@ -1,17 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import "./../style/Header.css";
 import { useState } from "react";
+import { getUser, logout } from "../api";
 
 export default function Header({ loggedIn }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  // const [addedToCart, setAddedToCart] = useState(false);
-
-  // const animateAddToCart = () => {
-  //   setAddedToCart(true);
-  //   setTimeout(() => {
-  //     setAddedToCart(false);
-  //   }, 500);
-  // };
+  const [user, setUser] = useState("");
 
   const navigate = useNavigate();
 
@@ -22,8 +16,31 @@ export default function Header({ loggedIn }) {
   const handleMenuOpen = () => {
     if (menuOpen) {
       setMenuOpen(false);
+      setTimeout(() => {
+        setUser("");
+      }, 300);
     } else {
       setMenuOpen(true);
+      handleUser();
+    }
+  };
+
+  const handleUser = async () => {
+    const response = await getUser();
+    if (!response.error) {
+      setUser(response.user);
+    }
+  };
+
+  const handleButton = async () => {
+    if (user) {
+      const response = await logout();
+      if (response) {
+        navigate("/");
+        setUser("");
+      }
+    } else {
+      navigate("/login");
     }
   };
 
@@ -68,21 +85,19 @@ export default function Header({ loggedIn }) {
         <p
           className="menuItem"
           onClick={() => {
-            navigate("/login");
-          }}
-          style={{ marginBottom: "30px" }}
-        >
-          Login
-        </p>
-        <p
-          className="menuItem"
-          onClick={() => {
             navigate("/register");
           }}
           style={{ marginBottom: "30px" }}
         >
           Register
         </p>
+        <button
+          className="loginMenuButton"
+          onClick={handleButton}
+          style={{ marginBottom: "30px" }}
+        >
+          {user ? "LOGOUT" : "LOGIN"}
+        </button>
       </div>
     </>
   );
