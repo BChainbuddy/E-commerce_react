@@ -6,6 +6,7 @@ export default function ProductPictures({ path }) {
         src={`http://localhost:8001/uploads/${path.image_path}`}
         height={400}
         width={400}
+        alt={path.image_path}
       />
       {/* {pictures.map((pic) => (
         <img src="" />

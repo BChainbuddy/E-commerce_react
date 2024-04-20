@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./pages/HomePage/App";
+import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./pages/LoginPage/Login";
@@ -13,6 +13,7 @@ import CartPage from "./pages/CartPage/CartPage";
 import Home from "./pages/HomePage/Home";
 import Checkout from "./pages/Checkout/Checkout";
 import UserPage from "./pages/Userpage/UserPage";
+import CheckoutComplete from "./components/CheckoutComplete";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
     ],
+  },
+  {
+    path: "/cart/checkout/complete",
+    element: <CheckoutComplete />,
+    errorElement: <ErrorPage />,
   },
 ]);
 

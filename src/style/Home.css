@@ -189,6 +189,69 @@
 
 .seeProducts:hover {
   background: #22d1dc90;
-  /* color: white; */
   transform: scale(1.05, 1.05);
+}
+
+.seeProducts:active {
+  transform: scale(2, 2);
+  opacity: 0;
+}
+
+.homeImages {
+  transition: 500ms ease-in;
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+.intersectHomeImages {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.homeSocialMedia1 {
+  transition: transform 500ms 250ms ease-in, opacity 500ms 250ms ease-in,
+    filter 500ms ease-out;
+  transform: translateX(-50px);
+  opacity: 0;
+}
+
+.intersectSocialMedia1 {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.homeSocialMedia2 {
+  transition: transform 500ms 500ms ease-in, opacity 500ms 500ms ease-in,
+    filter 500ms ease-out;
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+.intersectSocialMedia2 {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.homeSocialMedia3 {
+  transition: transform 500ms 750ms ease-in, opacity 500ms 750ms ease-in,
+    filter 500ms ease-out;
+  transform: translateX(50px);
+  opacity: 0;
+}
+
+.intersectSocialMedia3 {
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+.intersectSocialMedia1:hover {
+  filter: drop-shadow(0 0 5px #22d1dc);
+}
+
+.intersectSocialMedia2:hover {
+  filter: drop-shadow(0 0 5px #22d1dc);
+}
+
+.intersectSocialMedia3:hover {
+  filter: drop-shadow(0 0 5px #22d1dc);
 }

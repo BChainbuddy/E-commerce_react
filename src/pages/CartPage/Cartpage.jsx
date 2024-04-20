@@ -49,7 +49,6 @@ export default function CartPage() {
               marginTop: "20px",
               color: "white",
               cursor: "pointer",
-              marginTop: "30px",
               marginLeft: "40px",
               width: "fit-content",
             }}

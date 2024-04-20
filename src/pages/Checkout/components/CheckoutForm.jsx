@@ -14,7 +14,6 @@ export default function CheckoutForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await checkoutComplete();
-
     if (!stripe || !elements) {
       return;
     }

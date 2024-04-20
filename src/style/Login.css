@@ -34,12 +34,26 @@ input:focus {
 }
 
 .loginPageButton {
-  background: #22d1dc;
+  height: 25px;
+  width: 120px;
+  background: #486470;
+  outline: none;
+  border-radius: 8px;
+  border: 0;
+  cursor: auto;
+  transition: 300ms ease-out;
+  color: black;
+  font-size: 16px;
 }
 
-.loginPageButton:hover {
+.loginPageButtonAfter {
+  background: #22d1dc;
+  cursor: pointer;
+}
+
+.loginPageButtonAfter:hover {
+  /* transform: scale(1.05, 1.05); */
   background: #22d1dc90;
-  transform: scale(1.05, 1.05);
 }
 
 .title {

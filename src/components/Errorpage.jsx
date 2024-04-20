@@ -1,8 +1,8 @@
 import "./../style/ErrorPage.css";
 
-import { useNavigate, useRouteError } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function ErrorPage() {
-  const error = useRouteError();
+  // const error = useRouteError();
   const navigate = useNavigate();
 
   return (

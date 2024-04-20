@@ -26,7 +26,7 @@ export default function ProductPage() {
   const handleAddToCart = async () => {
     const itemData = {
       itemId: product.id,
-      quantity: quantity,
+      quantity: Number(quantity),
     };
     const response = await addToCart(itemData);
     if (!response) {

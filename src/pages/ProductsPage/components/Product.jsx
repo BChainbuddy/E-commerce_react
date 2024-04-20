@@ -16,6 +16,7 @@ export default function Product({ product }) {
           src={`http://localhost:8001/uploads/${product.image_path}`}
           height={120}
           width={120}
+          alt={product.image_path}
         />
         <p className="overlay">See product</p>
       </div>

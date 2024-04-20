@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../../../style/CartItem.css";
 import { changeQuantity, deleteFromCart } from "../../../api";
 
@@ -27,6 +27,7 @@ export default function CartItem({ item, updateCart }) {
         src={`http://localhost:8001/uploads/${item.image_path}`}
         width={100}
         height={100}
+        alt={item.image_path}
       />
       <div
         style={{
@@ -50,7 +51,7 @@ export default function CartItem({ item, updateCart }) {
           ></input>
         </div>
       </div>
-      {item.newprice != item.price ? (
+      {item.newprice !== item.price ? (
         <div style={{ textAlign: "center" }}>
           <p
             style={{
