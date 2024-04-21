@@ -60,6 +60,7 @@ export default function Header({ loggedIn }) {
         <p
           className="menuItem"
           onClick={() => {
+            setMenuOpen(false);
             navigate("/");
           }}
         >
@@ -68,6 +69,7 @@ export default function Header({ loggedIn }) {
         <p
           className="menuItem"
           onClick={() => {
+            setMenuOpen(false);
             navigate("/products");
           }}
         >
@@ -76,6 +78,7 @@ export default function Header({ loggedIn }) {
         <p
           className="menuItem"
           onClick={() => {
+            setMenuOpen(false);
             navigate("/user");
           }}
           style={{ marginBottom: "30px" }}
@@ -85,6 +88,7 @@ export default function Header({ loggedIn }) {
         <p
           className="menuItem"
           onClick={() => {
+            setMenuOpen(false);
             navigate("/register");
           }}
           style={{ marginBottom: "30px" }}

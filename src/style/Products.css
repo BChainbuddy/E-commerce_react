@@ -185,3 +185,33 @@
 .circleChosen {
   background: #22d1dc80;
 }
+
+.hideCategoriesButton {
+  margin-top: 15px;
+  border: 1px solid white;
+  width: fit-content;
+  padding: 2px 6px;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 300ms ease-out;
+}
+
+.hideCategoriesButton:hover {
+  background: #22d1dc60;
+}
+
+.closeCategories {
+  overflow: hidden;
+  animation: animateCategories forwards 4s;
+}
+
+@keyframes animateCategories {
+  50% {
+    height: 20px;
+  }
+
+  100% {
+    width: 20px;
+  }
+}

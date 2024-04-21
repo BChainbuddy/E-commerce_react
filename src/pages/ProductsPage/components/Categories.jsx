@@ -25,6 +25,7 @@ export default function Categories({
             chosenCategory={chosenCategory}
           />
         ))}
+        {/* <div className="hideCategoriesButton">Hide categories</div> */}
       </div>
     </div>
   );

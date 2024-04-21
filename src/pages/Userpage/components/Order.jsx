@@ -1,8 +1,6 @@
 import "../../../style/User.css";
 
 export default function Order({ order }) {
-  console.log(order);
-
   const convertDate = (date) => {
     const newDate = new Date(date);
     const day = newDate.getDate();

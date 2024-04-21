@@ -1,5 +1,4 @@
 export default function ProductPictures({ path }) {
-  console.log(path);
   return (
     <div>
       <img

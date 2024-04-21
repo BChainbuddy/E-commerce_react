@@ -6,6 +6,7 @@
   top: 0;
   border-bottom: 3px solid #22d1dc;
   box-shadow: 0.3em 0.3em 1em #22d1dc60;
+  background: black;
 }
 
 .homePageContainer {
@@ -47,17 +48,17 @@
 }
 
 .typingText1 {
-  animation: animateText1 forwards infinite 20s,
+  animation: animateText1 forwards infinite 20s 2s,
     animateBorder ease infinite 1.5s;
 }
 
 .typingText2 {
-  animation: animateText2 forwards infinite 20s,
+  animation: animateText2 forwards infinite 20s 2s,
     animateBorder ease infinite 1.5s;
 }
 
 .typingText3 {
-  animation: animateText3 forwards infinite 20s,
+  animation: animateText3 forwards infinite 20s 2s,
     animateBorder ease infinite 1.5s;
 }
 
@@ -258,14 +259,14 @@
 }
 
 .beforeBe {
-  transition: 1500ms ease-in;
+  transition: 1500ms 2000ms ease-in;
   /* transform: translateY(50px); */
   margin-right: 10px;
   opacity: 0;
 }
 
 .beforeBetter {
-  transition: 1500ms 1500ms ease-in;
+  transition: 1500ms 3500ms ease-in;
   /* transform: translateY(50px); */
   opacity: 0;
 }

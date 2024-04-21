@@ -35,8 +35,7 @@ export default function ShippingInfo({ info }) {
       postal_code: postalCode,
       country: country,
     };
-    const response = await putAddress(newAddress);
-    console.log(response);
+    await putAddress(newAddress);
   };
 
   const handleCreateAddress = async () => {
@@ -47,8 +46,7 @@ export default function ShippingInfo({ info }) {
       postal_code: postalCode,
       country: country,
     };
-    const response = await putAddress(newAddress);
-    console.log(response);
+    await putAddress(newAddress);
   };
 
   return (

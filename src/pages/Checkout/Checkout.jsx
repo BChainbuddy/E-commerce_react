@@ -15,7 +15,6 @@ export default function Checkout() {
 
   const handleStripeSession = async () => {
     const response = await stripeSession();
-    console.log(response);
     if (response) {
       setSecretId(response);
     }

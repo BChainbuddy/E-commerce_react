@@ -17,7 +17,6 @@ export default function ProductPage() {
   const getItem = async () => {
     const item = (await getProductById(id))[0];
     setProduct(item);
-    console.log(item);
   };
   useEffect(() => {
     getItem();
