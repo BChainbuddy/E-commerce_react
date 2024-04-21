@@ -329,3 +329,39 @@ export async function getOrderById(orderId) {
     throw error;
   }
 }
+
+export async function getCategories() {
+  try {
+    const response = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/categories`,
+      {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return response.json();
+  } catch (error) {
+    console.error("Network error:", error);
+  }
+}
+
+export async function getItemsByCategory(categoryId) {
+  try {
+    const response = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/categories/${categoryId}`,
+      {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return response.json();
+  } catch (error) {
+    console.error("Network error:", error);
+  }
+}

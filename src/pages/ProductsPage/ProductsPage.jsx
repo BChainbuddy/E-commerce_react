@@ -2,27 +2,52 @@ import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import "../../style/Products.css";
 import ProductList from "./components/ProductList";
-import { getProducts } from "../../api";
+import { getCategories, getItemsByCategory, getProducts } from "../../api";
 import Loader from "../../components/Loader";
+import Categories from "./components/Categories";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [discounted, setDiscounted] = useState([]);
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [chosenCategory, setChosenCategory] = useState("");
 
   const populateProducts = async () => {
-    const response = await getProducts();
-    const newArray = response.filter((el) => {
-      return el.discount;
-    });
-    console.log(response);
-    console.log(newArray);
-    setDiscounted(newArray);
-    setProducts(response);
+    if (!chosenCategory) {
+      const response = await getProducts();
+      const newArray = response.filter((el) => {
+        return el.discount;
+      });
+      if (response) {
+        setDiscounted(newArray);
+        setProducts(response);
+      }
+    } else {
+      const response = await getItemsByCategory(chosenCategory);
+      const newArray = response.filter((el) => {
+        return el.discount;
+      });
+      if (response) {
+        setDiscounted(newArray);
+        setProducts(response);
+      }
+    }
+  };
+
+  const populateCategories = async () => {
+    const response = await getCategories();
+    if (response) {
+      setCategories(response);
+    }
   };
 
   useEffect(() => {
     populateProducts();
+  }, [chosenCategory]);
+
+  useEffect(() => {
+    populateCategories();
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
         setShowTopBtn(true);
@@ -34,7 +59,7 @@ export default function ProductsPage() {
 
   return (
     <>
-      {products.length ? (
+      {products.length && categories.length ? (
         <>
           <div id="productsPageContainer">
             <p
@@ -49,10 +74,14 @@ export default function ProductsPage() {
               items which will make you stronger and fitter than ever before!
             </p>
             <div id="productsPartContainer">
-              <div id="discountedItemsContainer">
-                <p className="containerTitles">Discounts!</p>
-                <ProductList products={discounted} />
-              </div>
+              {discounted.length ? (
+                <div id="discountedItemsContainer">
+                  <p className="containerTitles">Discounts!</p>
+                  <ProductList products={discounted} />
+                </div>
+              ) : (
+                <></>
+              )}
               <div id="allItemsContainer">
                 <p className="containerTitles">Browse all items</p>
                 <ProductList products={products} />
@@ -78,6 +107,11 @@ export default function ProductsPage() {
           ) : (
             <></>
           )}
+          <Categories
+            categories={categories}
+            setChosenCategory={setChosenCategory}
+            chosenCategory={chosenCategory}
+          />
         </>
       ) : (
         <Loader />

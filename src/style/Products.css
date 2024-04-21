@@ -135,3 +135,53 @@
 .toTop:hover {
   filter: drop-shadow(0 0 5px #22d1dc);
 }
+
+#categoriesContainer {
+  position: fixed;
+  left: 0;
+  width: calc(40% / 2);
+  top: 40vh;
+}
+
+#categories {
+  margin: 15%;
+  background: #22d1dc50;
+  color: white;
+  border-radius: 7px;
+  padding: 5%;
+  border: 1px solid white;
+}
+
+.category {
+  /* display: flex;
+  flex-direction: row; */
+  /* align-items: center; */
+  margin-top: 10px;
+  transition: 300ms ease-out;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 5px;
+  display: block;
+}
+
+.category:hover {
+  background: #22d1dc60;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: white;
+  margin-right: 5px;
+  display: inline-block;
+  transition: 300ms ease-out;
+}
+
+.categoryName {
+  display: inline;
+}
+
+.circleChosen {
+  background: #22d1dc80;
+}

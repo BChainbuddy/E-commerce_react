@@ -1,15 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import "../../style/Home.css";
 import { useInView } from "react-intersection-observer";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [transitionLogo, setTransitionLogo] = useState(false);
+
   const navigate = useNavigate();
+
   const { ref, inView } = useInView({
     threshold: 0.7,
   });
   const { ref: refSocialMedia, inView: viewSocialMedia } = useInView({
     threshold: 0.7,
   });
+
+  useEffect(() => {
+    setTransitionLogo(true);
+  }, []);
 
   return (
     <>
@@ -32,7 +40,20 @@ export default function Home() {
             </div>
           </div>
           <div className="logoContainer">
-            <p className="logoText">be BETTER</p>
+            <p className="logoText">
+              <span
+                className={`beforeBe ${transitionLogo ? "transitionBe" : ""}`}
+              >
+                be
+              </span>
+              <span
+                className={`beforeBetter ${
+                  transitionLogo ? "transitionBetter" : ""
+                }`}
+              >
+                BETTER
+              </span>
+            </p>
           </div>
         </div>
         <div className="introductionText">
