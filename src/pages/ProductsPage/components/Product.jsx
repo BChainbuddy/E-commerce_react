@@ -13,7 +13,7 @@ export default function Product({ product }) {
     <div className="grid-item" onClick={toProductPage}>
       <div className="imageContainer">
         <img
-          src={`http://localhost:8001/uploads/${product.image_path}`}
+          src={`${process.env.REACT_APP_SERVER_URL}/uploads/${product.image_path}`}
           height={120}
           width={120}
           alt={product.image_path}
