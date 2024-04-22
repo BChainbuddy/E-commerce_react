@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# BE-BETTER E-commerce Shop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+BE-BETTER is an online e-commerce platform dedicated to fitness accessories and equipment. Built with React, this application is designed to provide a seamless shopping experience, enabling users to explore products, manage their carts, view their order history, and much more.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Product Exploration**: Browse a wide range of fitness accessories and equipment.
+- **User Authentication**: Secure login and registration functionality using BE-BETTER accounts with the integration of Passport strategies. Supports Google accounts (currently limited to whitelisted accounts).
+- **Shopping Cart**: Manage your shopping cart to review and adjust selected products before purchase.
+- **Order with Stripe**: Complete your purchases easily using Stripe for payment processing.
+- **Order History**: View the history of your orders to keep track of purchases and expenditures.
+- **User Profile**: Access and manage your user profile (restricted to authenticated users).
 
-### `npm start`
+## Technical Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React
+- **Authentication**: Passport.js
+- **Payment Processing**: Stripe
+- **Backend**: Express connected to a PostgreSQL server. For more details, visit the backend repository at [Express Backend Repository](https://github.com/BChainbuddy/E-commerce_express) (update the link if necessary).
+- **Hosting**: The application is hosted on Render. Visit the live application [here](https://e-commerce-react-3uf0.onrender.com).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+You need to have Node.js and npm installed on your machine. To install these, follow the instructions from [Node.js official website](https://nodejs.org/).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Clone the repository:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/BChainbuddy/E-commerce_react.git
+cd E-commerce_react
+```
 
-### `npm run eject`
+Install NPM packages:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Run the application in development mode:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Navigate to `http://localhost:3000` to view the app in the browser.
 
-## Learn More
+## Project Insights
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Challenges and Solutions
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The most challenging aspect of this project was learning and implementing user authentication with Passport. The integration of multiple authentication strategies, especially securing and managing sessions in a PERN (PostgreSQL, Express, React, Node.js) stack environment, required significant research and testing. Debugging authentication flows and ensuring secure communication between the frontend and backend were critical hurdles that were overcome by leveraging comprehensive Passport documentation and community support.
 
-### Code Splitting
+### Learning Outcomes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The key learning from this project was understanding how to connect a PERN stack application from backend to frontend, with a particular focus on the nuances of implementing robust authentication systems with Passport.js. This experience has greatly enhanced my capability in building secure and scalable web applications.
 
-### Analyzing the Bundle Size
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Jaka Potokar** - *Sole Developer & Designer* - [BChainbuddy](https://github.com/BChainbuddy)
