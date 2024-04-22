@@ -16,7 +16,7 @@ BE-BETTER is an online e-commerce platform dedicated to fitness accessories and 
 - **Frontend**: React
 - **Authentication**: Passport.js
 - **Payment Processing**: Stripe
-- **Backend**: Express connected to a PostgreSQL server. For more details, visit the backend repository at [Express Backend Repository](https://github.com/BChainbuddy/E-commerce_express) (update the link if necessary).
+- **Backend**: Express connected to a PostgreSQL server. For more details, visit the backend repository at [Express Backend Repository](https://github.com/BChainbuddy/E-commerce_express)
 - **Hosting**: The application is hosted on Render. Visit the live application [here](https://e-commerce-react-3uf0.onrender.com).
 
 ## Getting Started
@@ -62,4 +62,4 @@ The key learning from this project was understanding how to connect a PERN stack
 
 ## Authors
 
-- **Jaka Potokar** - *Sole Developer & Designer* - [BChainbuddy](https://github.com/BChainbuddy)
+- **Jaka Potokar** - _Sole Developer & Designer_ - [BChainbuddy](https://github.com/BChainbuddy)
