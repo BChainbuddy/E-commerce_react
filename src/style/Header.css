@@ -49,7 +49,7 @@
   padding: 50px;
   width: 130px;
   background: black;
-  z-index: 11;
+  z-index: 16;
   transform: translateY(-500px);
   transition: 450ms ease-out;
   /* opacity: 0; */
