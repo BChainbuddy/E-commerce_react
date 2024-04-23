@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [transitionLogo, setTransitionLogo] = useState(false);
-  const [transitionPage, setTransitionPage] = useState(false);
 
   const navigate = useNavigate();
 
@@ -17,7 +16,6 @@ export default function Home() {
   });
 
   useEffect(() => {
-    setTransitionPage(true);
     setTransitionLogo(true);
   }, []);
 
@@ -28,9 +26,7 @@ export default function Home() {
         src="/homeBackground.jpg"
         alt="PersonRunning"
       />
-      <div
-        className={`pageCover ${transitionPage ? "pageCoverTransition" : ""}`}
-      ></div>
+      <div className="pageCover"></div>
       <div className="homePageContainer">
         <div className="pictureText">
           <div className="getContainer">

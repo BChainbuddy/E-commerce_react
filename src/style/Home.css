@@ -259,30 +259,32 @@
 }
 
 .beforeBe {
-  transition: 1500ms 2000ms ease-in;
+  /* transition: 1500ms 2000ms ease-in; */
   /* transform: translateY(50px); */
   margin-right: 10px;
+  /* opacity: 0; */
+  animation: logoAppear 1500ms ease-in 3000ms forwards;
   opacity: 0;
 }
 
 .beforeBetter {
-  transition: 1500ms 3500ms ease-in;
+  /* transition: 1500ms 3500ms ease-in; */
   /* transform: translateY(50px); */
+  /* opacity: 0; */
+  animation: logoAppear 1500ms ease-in 4500ms forwards;
   opacity: 0;
 }
 
-.transitionBe {
-  /* transform: translateY(0px); */
-  opacity: 1;
-}
-
-.transitionBetter {
-  /* transform: translateY(0px); */
-  opacity: 1;
+@keyframes logoAppear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .pageCover {
-  background: rgba(0, 0, 0, 100);
   opacity: 1;
   position: absolute;
   z-index: 15;
@@ -290,9 +292,20 @@
   bottom: 0;
   left: 0;
   right: 0;
-  transition: 2000ms ease-in;
+  animation: animatePageCover 3000ms ease-in forwards;
+  background: rgba(0, 0, 0, 100);
 }
 
-.pageCoverTransition {
-  background: rgba(0, 0, 0, 0);
+@keyframes animatePageCover {
+  0% {
+    background: rgba(0, 0, 0, 100);
+  }
+
+  50% {
+    background: rgba(0, 0, 0, 50);
+  }
+
+  100% {
+    background: rgba(0, 0, 0, 0);
+  }
 }
